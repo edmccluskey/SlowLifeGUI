@@ -1,6 +1,8 @@
 import java.awt.*;
+
 import javax.swing.*;
 import java.util.*;
+import java.lang.*;
 
 
 public class MainPanel extends JPanel {
@@ -32,13 +34,16 @@ public class MainPanel extends JPanel {
     }
 
     public int convertToInt(int x) {
-	int c = 0;
+	//int c = 0;
 	String padding = "0";
-	while (c < _r) {
-	    String l = new String("0");
+    char[] array = new char[_r];
+    Arrays.fill(array, '0');
+    String l = new String(array);
+    		//new String("0");
+	//while (c < _r) {
 	    padding += l;
-	    c++;
-	}
+	  //  c++;
+	//}
 	
 	String n = padding + String.valueOf(x);
 	int q = Integer.parseInt(n);
@@ -68,7 +73,8 @@ public class MainPanel extends JPanel {
 	if (_cells[x][upY].getAlive())        { numNeighbors++; }
 	if (_cells[x][downY].getAlive())      { numNeighbors++; }
 	    
-	return convertToInt(numNeighbors);
+	return //convertToInt(numNeighbors);
+			numNeighbors;
 
     }
 
